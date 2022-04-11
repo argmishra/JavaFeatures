@@ -1,6 +1,5 @@
 # Java Features
 
-
 ## Java 8
 
 1. Lambda Expression 
