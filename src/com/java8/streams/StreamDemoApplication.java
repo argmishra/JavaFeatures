@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamDemoApplication {
 
@@ -80,7 +81,24 @@ public class StreamDemoApplication {
 
     System.out.println("reduce Method Demo : " +
         arrayList.stream().reduce(0, (a, b) -> a + b));
+    
+    System.out.println("peek Method Demo : " +
+            arrayList.stream()
+    .filter(e -> e%2==0).peek(e -> System.out.println(e))
+    .filter(e -> e > 0).peek(e -> System.out.println(e))
+    .collect(Collectors.toList()));
+    
+    System.out.println("skip and limit Method Demo : " +
+    arrayList.stream().skip(2).limit(3).collect(Collectors.toList()));
+    
+    System.out.println("orElse Method Demo : " +
+    arrayList.stream().filter(e -> e < 0).findFirst().orElse(2222));
+    
+    System.out.println("allMatch Method Demo : " + arrayList.stream().allMatch(i -> i % 2 == 0));
+    System.out.println("anyMatch Method Demo : " + arrayList.stream().anyMatch(i -> i % 2 == 0));
+    System.out.println("noneMatch Method Demo : " + arrayList.stream().noneMatch(i -> i % 2 == 0));
 
+    
   }
 
 }
