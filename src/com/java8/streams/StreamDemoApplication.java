@@ -21,6 +21,7 @@ public class StreamDemoApplication {
     arrayList.add(15);
     arrayList.add(25);
     arrayList.add(15);
+    List<String> stringStream = List.of("A", "B", "C", "D", "E");
 
     System.out.println("ArrayList : " + arrayList);
 
@@ -30,10 +31,14 @@ public class StreamDemoApplication {
 
     List<Integer> evenList =
         arrayList.stream().filter(a -> a % 2 != 0).collect(Collectors.toList());
-    System.out.println("Odd ArrayList : " + evenList);
+    System.out.println("filter method demo : " + evenList);
+    Stream<String> longStringsStream = stringStream.stream().filter((value) -> {
+      return value.length() >= 0;
+    });
+    longStringsStream.forEach(System.out::println);
 
     List<Integer> doubleList = arrayList.stream().map(i -> i * 2).collect(Collectors.toList());
-    System.out.println("Double Value ArrayList : " + doubleList);
+    System.out.println("map method demo : " + doubleList);
 
     System.out.println("Count Method Demo : " + doubleList.stream().count());
 
@@ -75,30 +80,50 @@ public class StreamDemoApplication {
     System.out.println("summaryStatistics Method Demo : " +
         arrayList.stream().mapToInt(i -> i).summaryStatistics());
 
-    System.out.println("groupingBycounting Method Demo : " +
+    System.out.println("groupingBy counting Method Demo : " +
         arrayList.stream()
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())));
 
     System.out.println("reduce Method Demo : " +
         arrayList.stream().reduce(0, (a, b) -> a + b));
-    
+
     System.out.println("peek Method Demo : " +
-            arrayList.stream()
-    .filter(e -> e%2==0).peek(e -> System.out.println(e))
-    .filter(e -> e > 0).peek(e -> System.out.println(e))
-    .collect(Collectors.toList()));
-    
+        arrayList.stream()
+            .filter(e -> e % 2 == 0).peek(e -> System.out.println(e))
+            .filter(e -> e > 0).peek(e -> System.out.println(e))
+            .collect(Collectors.toList()));
+
     System.out.println("skip and limit Method Demo : " +
-    arrayList.stream().skip(2).limit(3).collect(Collectors.toList()));
-    
+        arrayList.stream().skip(2).limit(3).collect(Collectors.toList()));
+
     System.out.println("orElse Method Demo : " +
-    arrayList.stream().filter(e -> e < 0).findFirst().orElse(2222));
-    
+        arrayList.stream().filter(e -> e < 0).findFirst().orElse(2222));
+
     System.out.println("allMatch Method Demo : " + arrayList.stream().allMatch(i -> i % 2 == 0));
     System.out.println("anyMatch Method Demo : " + arrayList.stream().anyMatch(i -> i % 2 == 0));
     System.out.println("noneMatch Method Demo : " + arrayList.stream().noneMatch(i -> i % 2 == 0));
 
-    
+    System.out.println("Collectors joining Method Demo : " + stringStream.stream()
+        .collect(Collectors.joining(", ")));
+
+    System.out.println("Collectors partitioningBy Method Demo : " +
+        arrayList.stream().collect(Collectors.partitioningBy(i -> i % 2 == 0)));
+
+    System.out.println("Collectors groupingBy Method Demo : " +
+        arrayList.stream().collect(Collectors.groupingBy(i -> i % 2 == 0)));
+
+    System.out.println("parallel Method Demo : ");
+    arrayList.stream().parallel().forEach(e -> System.out.println(e + " "));
+
+    System.out.println("infinite stream generate Method Demo : ");
+    Stream.generate(Math::random).limit(5).forEach(System.out::println);
+
+    System.out.println("infinite stream iterate Method Demo : ");
+    Stream.iterate(2, i -> i * 2).limit(5).forEach(System.out::println);
+
+    Stream<String> concatStream = Stream.concat(Stream.of("Optimus"), Stream.of("Prime"));
+    System.out.println("concatStream Method Demo : " + concatStream.collect(Collectors.toList()));
+
   }
 
 }
