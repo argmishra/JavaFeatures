@@ -121,6 +121,10 @@ public class StreamDemoApplication {
     System.out.println("infinite stream iterate Method Demo : ");
     Stream.iterate(2, i -> i * 2).limit(5).forEach(System.out::println);
 
+    Stream<Integer> integerStream = Stream.of(1);
+    System.out.println("Stream Lazy Behaviour Demo : " +integerStream);
+    integerStream.forEach(System.out::println);
+
     Stream<String> concatStream = Stream.concat(Stream.of("Optimus"), Stream.of("Prime"));
     System.out.println("concatStream Method Demo : " + concatStream.collect(Collectors.toList()));
 
