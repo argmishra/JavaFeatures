@@ -14,10 +14,8 @@ public class Java10DemoApplication {
     }
 
     System.out.println("orElseThrow() in Optional");
-    String str = "";
-    Optional<String> name = Optional.ofNullable(str);
+    Optional<String> name = Optional.ofNullable(null);
     System.out.println(name.orElseThrow());
-    System.out.println(name.get());
 
     System.out.println("copyOf() in Collections");
     List<Integer> copyOfActors = List.copyOf(numbers);

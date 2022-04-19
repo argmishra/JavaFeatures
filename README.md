@@ -22,8 +22,8 @@
 3. Private Methods in Interface.
 4. Process API Improvements - Added ProcessHandle class fo managing OS processes. 
 5. Try with Resources Improvements - Manage resources automatically.
-6. Stream API Improvements - Addition of dropWhile(0) and takeWhile().
-7. Optional class Improvements - Addition of ifPresent(0), stream() and ifPresentOrElse().
+6. Stream API Improvements - Addition of dropWhile() and takeWhile().
+7. Optional class Improvements - Addition of ifPresent(), stream() and ifPresentOrElse().
 8. Reactive Stream API Improvements - Addition of concurrent flow classes.
 9. Advance Javadoc Search.
 10. Deprecate Applet API.
@@ -64,7 +64,7 @@
 3. Reimplement the Legacy Socket API.
 4. Switch Expressions Enhancements - break replaced with yield.
 
-## Java 14 [2019]
+## Java 14 [2020]
 
 1. Standardized Switch API.
 2. Pattern Matching for instanceof - instanceof can check class and object.
@@ -98,3 +98,4 @@
 2. Introduction of Simple Web Server
 3. Code Snippets in Java API Documentation
 4. Incubator Improvements.
+5. Deprecate finalize() 
