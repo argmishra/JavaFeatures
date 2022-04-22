@@ -41,25 +41,25 @@
 
 ## Java 11 [2018]
 
-1. Running java frm cmd with single command.
+1. Running java from cmd with single command.
 2. String API.
 3. Local-Variable for Lambda parameters.
 4. Dynamic Class-File Constants.
 5. Remove the Java EE and CORBA Modules.
 6. Standardizes the Http Client API.
-7. Make reading and writing of String convenient.
+7. Make reading and writing of String convenient from file.
 
 ## Java 12 [2019]
 
 1. Improvement on JVM.
-2. Pattern expressions and break mandatory removal in Switch cases.
+2. Break mandatory removal in Switch cases.
 3. File mismatch().
 4. Teeing Collectors.
-5. String API - indent(0), transform() and describeConstable().
+5. String API - indent(), transform() and describeConstable().
 
 ## Java 13 [2019]
 
-1. Create multiline strings and String API.
+1. Create multiline strings.
 2. FileSystems API.
 3. Reimplement the Legacy Socket API.
 4. Switch Expressions Enhancements - break replaced with yield.
@@ -69,7 +69,7 @@
 1. Standardized Switch API.
 2. Pattern Matching for instanceof - instanceof can check class and object.
 3. Helpful NullPointerExceptions - Descriptive exception message.
-4. Text Blocks Improvements.
+4. String Text Blocks Improvements.
 5. Packaging Tool - Incubator.
 
 ## Java 15 [2020]
